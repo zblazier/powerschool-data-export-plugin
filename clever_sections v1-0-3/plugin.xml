@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://plugin.powerschool.pearson.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd" name="Clever Sections" version="1.0.3" description="Exports section numbers, names and ids with valid term start and end dates ">
+  <publisher name="Zach Blazier">
+    <contact email="blazierz@wws.k12.in.us" />
+  </publisher>
+</plugin>

@@ -1,0 +1,6 @@
+<permission_mappings>
+  <permission name="/admin/choose_page.html">
+    <implies allow="post">/ws/schema/query/wws.tsg.clever_sections.sections.term_dates</implies>
+  </permission>
+
+</permission_mappings>

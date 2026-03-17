@@ -1,0 +1,36 @@
+<queries>
+  <query name="wws.tsg.clever_sections.sections.term_dates"
+         coreTable="sections" flattened="false" tags="PowerQuery,sections">
+    <summary>Clever - McGraw Hill sections export</summary>
+    <description>exports sections details, course name and term dates joined by the section.termid and courses.course_number</description>
+    <args>
+    </args>
+    <columns>
+      <column column="terms.firstday">Term_start</column>
+      <column column="terms.lastday">Term_end</column>
+      <column column="courses.course_name">Course_name</column>
+      <column column="sections.course_number">Course_number</column>
+      <column column="sections.expression">Period</column>
+      <column column="sections.id">Section_id</column>
+      <column column="sections.section_number">Section_number</column>
+      <column column="sections.termid">Term_name</column>
+      <column column="sections.teacher">Teacher_id</column>
+      <column column="sections.schoolid">School_id</column>
+    </columns>
+    <sql>
+      <![CDATA[
+          SELECT DISTINCT
+            to_char(terms.firstday,'MM/DD/YYYY')AS "Term_start", to_char(terms.lastday,'MM/DD/YYYY') AS "Term_end", courses.course_name AS "Course_name",
+            sections.course_number AS "Course_number", sections.expression AS "Period", sections.id AS "Section_id", 
+            sections.section_number AS "Section_number", sections.termid AS "Term_name", 
+            sections.teacher AS "Teacher_id", sections.schoolid AS "School_id"
+            FROM sections
+            JOIN terms ON terms.id = sections.termid AND terms.schoolid = sections.schoolid
+            JOIN courses ON courses.course_number = sections.course_number
+            WHERE terms.id >=  3500
+            ORDER BY sections.id
+]]>
+    </sql>
+  </query>
+
+</queries>
